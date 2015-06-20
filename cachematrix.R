@@ -78,19 +78,24 @@ cacheSolve <- function(x, ...) {
 ## the non-cached and cached operations to return the inverse.
 testCacheMatrix <- function() {
   # 1) Create a random million-cell matrix
+  print("1) Create a random million-cell matrix")
   nrow <- 1000
   test.matrix <- makeCacheMatrix(matrix(rnorm(nrow * nrow),nrow=nrow))
   
   # 2) Time the creation of the inverse matrix;
   #    The first time we have to do the calculation, which takes
   #    a mean of 7.60 seconds of user time as measured by system.time
+  print("2) cacheSolve(test.matrix) - Calculate the inverted matrix")
   print(system.time(inverted.test.matrix <- cacheSolve(test.matrix)))
   # 3) The second time we pull it from cache; this takes an mean
   #    of 0.01 seconds of user time.
+  print("3) cacheSolve(test.matrix) - The 2nd time retrieves from cache")
   print(system.time(inverted.test.matrix <- cacheSolve(test.matrix)))
   
   # 4) Let's check and see if the matrix created was really the
   # inverse; the original matrix times its inverse
   # should be equal to the identity matrix, I:
+  print("4) Test the result: doing matrix multiplication of the original matrix")
+  print("with the inverted matrix should return the identity matrix.")
   print(round(test.matrix$get() %*% inverted.test.matrix,5)[1:20,1:14])
 }

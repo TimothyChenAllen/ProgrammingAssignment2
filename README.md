@@ -1,5 +1,5 @@
-### Introduction
-cachematrix.R - Tim Allen - 20 June 2015
+### AUTHOR
+cachematrix.R - Tim Allen - (Forked from R.Peng 20 June 2015)
 
 ## PURPOSE.
 The first two functions calculate and return the inverse of a matrix. A third function tests and times the first two functions.
@@ -19,11 +19,16 @@ III) testCachematrix: This function tests the other two functions by creating a 
 A test run follows:
 
     > testCacheMatrix()
+    [1] "1) Create a random million-cell matrix"
+    [1] "2) cacheSolve(test.matrix) - Calculate the inverted matrix"
        user  system elapsed 
-       7.44    0.02    7.50 
+       7.83    0.04    8.66 
+    [1] "3) cacheSolve(test.matrix) - The 2nd time retrieves from cache"
     getting cached data
        user  system elapsed 
           0       0       0 
+    [1] "4) Test the result: doing matrix multiplication of the original matrix"
+    [1] "with the inverted matrix should return the identity matrix."
           [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12] [,13] [,14]
      [1,]    1    0    0    0    0    0    0    0    0     0     0     0     0     0
      [2,]    0    1    0    0    0    0    0    0    0     0     0     0     0     0
