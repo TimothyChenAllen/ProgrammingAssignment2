@@ -1,0 +1,16 @@
+{
+    "contents" : "## These two functions calculate and return the inverse of a matrix.\n## As this is a time-consuming process, we cache the inverse of\n## a matrix when it is calculated, to avoid calculating it more than once.\n## We retrieve this cached value once it is calculated, as long\n## as the matrix is unchanged.\n\n## makeCacheMatrix: This function allows us to create a new matrix.\n## This matrix can return the cached version of its inverse.\nmakeCacheMatrix <- function(x = matrix()) {\n  i <- NULL\n  set <- function(y) {\n    x <<- y\n    i <<- NULL\n  }\n  get <- function() x\n  setinverse <- function(solve) i <<- solve\n  getinverse <- function() i\n  list(set = set, get = get,\n       setinverse = setinverse,\n       getinverse = getinverse)\n  \n}\n\n\n## cacheSolve: This function returns the inverse of a matrix created\n## by makeCacheMatrix.  If the inverse has alread been calculated,\n## cacheSolve returns the cached copy to save time.\ncacheSolve <- function(x, ...) {\n        ## Return a matrix that is the inverse of 'x'\n  i <- x$getinverse()\n  if(!is.null(i)) {\n    message(\"getting cached data\")\n    return(i)\n  }\n  data <- x$get()\n  i <- solve(data, ...)\n  x$setinverse(i)\n  i\n}\n",
+    "created" : 1434757294375.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1876973378",
+    "id" : "F73B54BE",
+    "lastKnownWriteTime" : 1434815072,
+    "path" : "~/R/coursera/r programming/week 4/ProgrammingAssignment2/cachematrix.R",
+    "project_path" : "cachematrix.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

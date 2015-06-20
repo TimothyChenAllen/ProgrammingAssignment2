@@ -1,0 +1,17 @@
+{
+    "contents" : "# Test cachematrix.R\nsource(\"cachematrix.R\")\nnrow <- 1000\ntest.matrix <- makeCacheMatrix(matrix(rnorm(nrow * nrow),nrow=nrow))\n# The first time we have to do the calculation\nsystem.time(inverted.test.matrix <- cacheSolve(test.matrix))\n# The second time we pull it from cache; it should be a lot faster\nsystem.time(inverted.test.matrix <- cacheSolve(test.matrix))\n# Let's check and see if the matrix created was really the\n# inverse; the original matrix times its inverse\n# should be equal to the identity matrix, I:\nround(test.matrix$get() %*% inverted.text.matrix,5)[1:20,1:14]\n",
+    "created" : 1434757339253.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2318329945",
+    "id" : "A03226A5",
+    "lastKnownWriteTime" : 1434815603,
+    "path" : "~/R/coursera/r programming/week 4/ProgrammingAssignment2/testCacheMatrix.R",
+    "project_path" : "testCacheMatrix.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
