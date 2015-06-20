@@ -1,4 +1,4 @@
-### AUTHOR
+### AUTHOR.
 cachematrix.R - Tim Allen - (Forked from R.Peng 20 June 2015)
 
 ## PURPOSE.
